@@ -34,7 +34,7 @@
                             <option value="" selected disabled>{{__('-- Pilih Jurusan --')}}</option>
                             @if(isset($jurusans))
                                 @foreach($jurusans as $jurusan)
-                                    <option value="{{$jurusan->id}}" @if($jurusan->id == old('jurusan')) selected @endif>{{$jurusan->name}}</option>
+                                    <option value="{{$jurusan->id}}" @if($jurusan->id == old('jurusan')) selected @endif >{{$jurusan->name}}</option>
                                 @endforeach
                             @endif
                         </x-select>
