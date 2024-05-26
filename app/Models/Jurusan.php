@@ -10,6 +10,7 @@ class Jurusan extends Model
 {
     use HasFactory;
     protected $fillable = ['name'];
+    protected $primaryKey = 'id';
 
     public function member(){
         return $this->belongsToMany(Member::class);

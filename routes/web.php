@@ -23,6 +23,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -30,6 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/members', [MemberController::class, 'index'])->name('members.index');
     Route::post('/members', [MemberController::class, 'add'])->name('members.add');
 
+    Route::get('/jurusan', [\App\Http\Controllers\JurusanController::class, 'index'])->name('jurusan.index');
+    Route::post('/jurusan', [\App\Http\Controllers\JurusanController::class, 'add'])->name('jurusan.add');
 });
 
 require __DIR__.'/auth.php';
