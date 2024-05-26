@@ -7,16 +7,10 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            {{--            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">--}}
-            {{--                <div class="p-6 text-gray-900">--}}
-
-            {{--                </div>--}}
-            {{--            </div>--}}
-
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="max-w-xl">
-
                     <h2 class="font-bold text-xl">Add Members</h2>
+
                     <form action="{{route('members.add')}}" method="post">
                         @csrf
                         <x-input-label for="name" :value="__('Name')" class="my-1"/>
@@ -54,5 +48,18 @@
 
             </div>
         </div>
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-3">
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <div class="max-w-xl">
+                    <h2 class="font-bold text-xl">List Members</h2>
+
+                    @foreach($members as $member)
+                        <x-item :member="$member"></x-item>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
     </div>
 </x-app-layout>

@@ -12,6 +12,6 @@ class Jurusan extends Model
     protected $fillable = ['name'];
 
     public function member(){
-        return $this->hasMany(Member::class);
+        return $this->belongsToMany(Member::class);
     }
 }

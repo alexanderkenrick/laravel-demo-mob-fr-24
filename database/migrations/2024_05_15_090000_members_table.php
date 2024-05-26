@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('phone');
+            $table->string('phone', 12);
             $table->foreignId('jurusan_id')->references('id')->on('jurusans');
             $table->timestamps();
         });
