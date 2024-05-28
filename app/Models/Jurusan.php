@@ -13,6 +13,6 @@ class Jurusan extends Model
     protected $primaryKey = 'id';
 
     public function member(){
-        return $this->belongsToMany(Member::class);
+        return $this->hasMany(Member::class);
     }
 }
