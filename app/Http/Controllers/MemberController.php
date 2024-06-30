@@ -50,13 +50,14 @@ class MemberController extends Controller
 
         if($request->hasFile('image')){
             $imageName = $request->file('image')->getClientOriginalName();
-            $path = "assets/images/". $name ."/";
+            $path = "storage/assets/images/". $name ."/";
             File::makeDirectory(public_path($path), 0777, true, true);
-            $path = "assets/images/". $name ."/". $imageName . ".jpg";
+            $path = "storage/assets/images/". $name ."/". $imageName . ".jpg";
             $image = $request->file('image');
             $image = ImageManager::gd()->read($image);
             $image->encode(new JpegEncoder(95));
             $image->toJpeg()->save(public_path($path));
+
 //            $path = $request->file('image')->store('public/images');
 
         }
